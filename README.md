@@ -1,14 +1,14 @@
 ━━━━━━━━━━━━━━━━━━━━
 
 <h2 align="center">
-    ──「 ʟᴜᴄʏ ✘ ʀᴏʙᴏᴛ 」──
+    ──「 ECHO ~ BOT 」──
 </h2>
 
 <p align="center">
   <img src="">
 </p>
 
-_**ᴀᴠᴀɪʟᴀʙʟᴇ ᴏɴ ᴛᴇʟᴇɢʀᴀᴍ ᴀs [ʟᴜᴄʏ ʀᴏʙᴏᴛ](https://t.me/lucy_filter_bot)**_
+_**ᴀᴠᴀɪʟᴀʙʟᴇ ᴏɴ ᴛᴇʟᴇɢʀᴀᴍ ᴀs [ECHOBOT](https://t.me/echo_debris_bot)**_
 
 <p align="center">
 <b>𝗗𝗘𝗣𝗟𝗢𝗬𝗠𝗘𝗡𝗧 𝗠𝗘𝗧𝗛𝗢𝗗𝗦</b>
@@ -18,7 +18,7 @@ _**ᴀᴠᴀɪʟᴀʙʟᴇ ᴏɴ ᴛᴇʟᴇɢʀᴀᴍ ᴀs [ʟᴜᴄʏ ʀᴏʙ�
     ─「 ᴅᴇᴩʟᴏʏ ᴏɴ ʜᴇʀᴏᴋᴜ 」─
 </h3>
 
-<p align="center"><a href="https://dashboard.heroku.com/new?template=https://github.com/Codeflix-Bots/l"> <img src="https://img.shields.io/badge/Deploy%20On%20Heroku-black?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
+<p align="center"><a href="https://dashboard.heroku.com/new?template=https://github.com/stardust-community/l"> <img src="https://img.shields.io/badge/Deploy%20On%20Heroku-black?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
 
 
 <h3 align="center">
@@ -129,7 +129,7 @@ and more....
 - [x] CHANNELS - add your database channel id ,if u will share your file here the bot will add the file in database autometiccaly
 - [x] DATABASE_URI - if you dont know how to get it, read this documentation from scratch
 ```
-- [x] ᴍᴏʀᴇ ᴄᴏɴғɪɢs [ᴄʜᴀɴɢᴇ ʜᴇʀᴇ..](https://github.com/Codeflix-Bots/AutoFilter/Lucy/info.py)
+- [x] ᴍᴏʀᴇ ᴄᴏɴғɪɢs [ᴄʜᴀɴɢᴇ ʜᴇʀᴇ..](https://github.com/stardust-community/info.py)
 </details>
 
 
@@ -138,8 +138,8 @@ and more....
 - <b> ᴠᴘs/ʟᴏᴄᴀʟ ᴅᴇᴘʟᴏʏᴍᴇɴᴛ ᴍᴇᴛʜᴏᴅ </b>
 </h3></summary>
 
-- Get your [Necessary Variables](https://github.com/Codeflix-Bots/AutoFilter/main/info.py)
-- git clone https://github.com/Codeflix-Bots/AutoFilter
+- Get your [Necessary Variables](https://github.com/stardust-community/info.py)
+- git clone https://github.com/stardust-community
 - # Install Packages
 - pip3 install -U -r requirements.txt
 - Edit info.py with variables as given below then run bot
@@ -158,22 +158,12 @@ and more....
 </h3>
 
 <p align="center">
-<a href="https://telegram.me/codeflixsupport"><img src="https://img.shields.io/badge/-Support%20Group-blue.svg?style=for-the-badge&logo=Telegram"></a>
+<a href="https://telegram.me/sanctuary_stardust"><img src="https://img.shields.io/badge/-Support%20Group-blue.svg?style=for-the-badge&logo=Telegram"></a>
 </p>
 <p align="center">
-<a href="https://telegram.me/codeflix_bots"><img src="https://img.shields.io/badge/-Support%20Channel-blue.svg?style=for-the-badge&logo=Telegram"></a>
+<a href="https://telegram.me/sanctuary_stardust"><img src="https://img.shields.io/badge/-Support%20Channel-blue.svg?style=for-the-badge&logo=Telegram"></a>
 </p>
 
 ━━━━━━━━━━━━━━━━━━━━
 
-<h3 align="center">
-    ─「 ᴄʀᴇᴅɪᴛs 」─
-</h3>
 
-- <b>[ʏᴀᴛᴏ](https://github.com/Codeflix-Bots)  ➻  [sᴏᴍᴇᴛʜɪɴɢ](https://t.me/cosmic_freak) </b>
-- <b>[ᴅᴇᴇɴᴅᴀʏᴀʟ](https://github.com/Codeflix-Bots)  ➻  [sᴏᴍᴇᴛʜɪɴɢ](https://github.com/Deendayal403/Deendayal_dhakad) </b>
-- <b>[ʏᴜᴊɪ](https://github.com/Codeflix-Bots)  ➻  [sᴏᴍᴇᴛʜɪɴɢ](https://t.me/nova_flix) </b>
- 
-<b>ᴀɴᴅ ᴀʟʟ [ᴛʜᴇ ᴄᴏɴᴛʀɪʙᴜᴛᴏʀs](https://github.com/Codeflix-Bots/LucyV2/graphs/contributors) ᴡʜᴏ ʜᴇʟᴩᴇᴅ ɪɴ ᴍᴀᴋɪɴɢ ʟᴜᴄʏ ʀᴏʙᴏᴛ ᴜsᴇғᴜʟ & ᴩᴏᴡᴇʀғᴜʟ 🖤 </b>
-
-━━━━━━━━━━━━━━━━━━━━
