@@ -39,7 +39,7 @@ async def vrfs(client, message):
         ],[
         InlineKeyboardButton("🔄 ʀᴇғʀᴇsʜ", callback_data=f'vrrfrs#vrrfrs'), 
     ]]
-    await message.reply_text("✅ **#verification**\n\nTᴏᴛᴀʟ ᴠᴇʀɪғɪᴇᴅ ᴜsᴇʀs", reply_markup=InlineKeyboardMarkup(btn))
+    await message.reply_text("✮ **#verification**\n\nTᴏᴛᴀʟ ᴠᴇʀɪғɪᴇᴅ ᴜsᴇʀs", reply_markup=InlineKeyboardMarkup(btn))
 
 @Client.on_callback_query(filters.regex(r"^vrrfrs"))
 async def vr_ref(client, query): 
@@ -96,9 +96,9 @@ async def vr_ref(client, query):
         InlineKeyboardButton("🔄 ʀᴇғʀᴇsʜ", callback_data=f'vrrfrs#vrrfrs'), 
     ]] 
     try: 
-        await query.message.edit("✅ **#verification**\n\nTᴏᴛᴀʟ ᴠᴇʀɪғɪᴇᴅ ᴜsᴇʀs", reply_markup=InlineKeyboardMarkup(btn))
+        await query.message.edit("✮ **#verification**\n\nTᴏᴛᴀʟ ᴠᴇʀɪғɪᴇᴅ ᴜsᴇʀs", reply_markup=InlineKeyboardMarkup(btn))
     except MessageNotModified:
         pass
-    await query.answer("Rᴇғʀᴇsʜɪɴɢ_ᴅᴀᴛᴀ ✅......")
+    await query.answer("Rᴇғʀᴇsʜɪɴɢ_ᴅᴀᴛᴀ ♚......")
 
   
