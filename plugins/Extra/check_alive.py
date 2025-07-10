@@ -15,7 +15,7 @@ CMD = ["/", "."]
 @Client.on_message(filters.command("alive", CMD))
 async def check_alive(_, message):
     sticker = await message.reply_sticker("CAACAgIAAxkBAAEBVAlmCYqbLub_o5pVUOEwbqhV8kRytgACRBkAAgjh2UlSqev16oISqB4EE") 
-    text = await message.reply_text("Yᴏᴜ ᴀʀᴇ ᴠᴇʀʏ ʟᴜᴄᴋʏ 🤞 I ᴀᴍ ᴀʟɪᴠᴇ ❤️\nPʀᴇss /start ᴛᴏ ᴜsᴇ ᴍᴇ!")
+    text = await message.reply_text("Yᴏᴜ ᴀʀᴇ ᴠᴇʀʏ ʟᴜᴄᴋʏ CUTIE 🤞 I ᴀᴍ ᴀʟɪᴠᴇ ❤💗\nPʀᴇss /start ᴛᴏ ᴜsᴇ ᴍᴇ!")
     await asyncio.sleep(60)
     await sticker.delete()
     await text.delete()
@@ -27,7 +27,7 @@ async def ping(_, message):
     rm = await message.reply_text("...")
     end_t = time.time()
     time_taken_s = (end_t - start_t) * 1000
-    await rm.edit(f"🏓 Ping! : {time_taken_s:.3f} ms")
+    await rm.edit(f"🔷 Ping! : {time_taken_s:.3f} ms")
     await asyncio.sleep(60)
     await rm.delete()
     await message.delete()
@@ -73,12 +73,12 @@ def get_system_info():
         total_disk, used_disk = "Unavailable", "Unavailable"
 
     system_info = (
-        f"💻 **System Information**\n\n"
-        f"🖥️ **OS:** {os_info}\n"
-        f"⏰ **Bot Uptime:** {bot_uptime}\n"
-        f"🔄 **System Uptime:** {system_uptime}\n"
-        f"💾 **RAM Usage:** {used_ram} / {total_ram}\n"
-        f"📁 **Disk Usage:** {used_disk} / {total_disk}\n"
+        f"◼️ **System Information**\n\n"
+        f"🥮 **OS:** {os_info}\n"
+        f"🔹 **Bot Uptime:** {bot_uptime}\n"
+        f"💮 **System Uptime:** {system_uptime}\n"
+        f"🧸 **RAM Usage:** {used_ram} / {total_ram}\n"
+        f"❄️ **Disk Usage:** {used_disk} / {total_disk}\n"
     )
     return system_info
 
@@ -104,7 +104,7 @@ async def send_system_info(client, message):
 async def set_commands(client, message):
     commands = [BotCommand(cmd, desc) for cmd, desc in Bot_cmds.items()]
     await client.set_bot_commands(commands)
-    bot_set = await message.reply("ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅs ᴜᴘᴅᴀᴛᴇᴅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ✅ ")
+    bot_set = await message.reply("ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅs ᴜᴘᴅᴀᴛᴇᴅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ❄️ ")
     await asyncio.sleep(119)  
     await bot_set.delete()
     await message.delete()
