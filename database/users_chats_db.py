@@ -35,7 +35,7 @@ class Database:
         self.grp = self.db.groups
         self.users = self.db.uersz
         self.req = self.db.requests
-        self.botcol = self.db["codeflix"]  
+        self.botcol = self.db["sanctuary_stardust"]  
         self.bot_id_col = self.db["bot_id"] 
 
     async def find_join_req(self, id):
