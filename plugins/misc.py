@@ -99,7 +99,7 @@ async def who_is(client, message):
             message=chat_photo.big_file_id
         )
         buttons = [[
-            InlineKeyboardButton('🔐 Close', callback_data='close_data')
+            InlineKeyboardButton('💠 Close', callback_data='close_data')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -163,10 +163,10 @@ async def imdb_callback(bot: Client, quer_y: CallbackQuery):
          caption = f"""
 <b>Qᴜᴇʀʏ: {imdb['title']}</b>
 
-🏷 Tɪᴛʟᴇ: <a href="{imdb['url']}">{imdb['title']}</a>
-🎭 Gᴇɴʀᴇꜱ: {imdb.get('genres', 'N/A')}
-📆 Yᴇᴀʀ: <a href="{imdb['url']}/releaseinfo">{imdb['year']}</a>
-🌟 Rᴀᴛɪɴɢ: <a href="{imdb['url']}/ratings">{imdb['rating']}</a>/10
+🔷 Tɪᴛʟᴇ: <a href="{imdb['url']}">{imdb['title']}</a>
+⚜️ Gᴇɴʀᴇꜱ: {imdb.get('genres', 'N/A')}
+☢️ Yᴇᴀʀ: <a href="{imdb['url']}/releaseinfo">{imdb['year']}</a>
+💗 Rᴀᴛɪɴɢ: <a href="{imdb['url']}/ratings">{imdb['rating']}</a>/10
 """
     else:
         caption = "No Results"
