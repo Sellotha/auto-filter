@@ -34,7 +34,7 @@ async def add_redeem_code(client, message):
 
         codes_text = '\n'.join(f"➔ <code>/redeem {code}</code>" for code in codes)
         text = f"""
-            <b>🎉 <u>Gɪғᴛᴄᴏᴅᴇ Gᴇɴᴇʀᴀᴛᴇᴅ ✅</u></b>
+            <b>❄️ <u>Gɪғᴛᴄᴏᴅᴇ Gᴇɴᴇʀᴀᴛᴇᴅ ✅</u></b>
 
             <b> <u>Tᴏᴛᴀʟ ᴄᴏᴅᴇ:</u></b> {num_codes}
 
@@ -47,9 +47,9 @@ async def add_redeem_code(client, message):
             <b> <u>Click on the code above</u> to copy it instantly!</b>
             <b> <u>Send the copied code to the bot</u>\n to unlock your premium features!</b>
 
-            <b>🚀 Enjoy your premium access! 🔥</u></b>
+            <b>❄️ Enjoy your premium access! 🔥</u></b>
             """
-        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("🔑 Redeem Now 🔥", url=f"https://t.me/{temp.U_NAME}")]])
+        keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("❄️ Redeem Now 🔥", url=f"https://t.me/{temp.U_NAME}")]])
         await message.reply_text(text, reply_markup=keyboard)
     else:
         await message.reply_text("<b>♻ Usage:\n\n➩ <code>/add_redeem 1min 1</code>,\n➩ <code>/add_redeem 1hour 10</code>,\n➩ <code>/add_redeem 1day 5</code></b>")
