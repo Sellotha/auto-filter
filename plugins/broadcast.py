@@ -71,7 +71,7 @@ async def remove_junkuser__db(bot, message):
 async def broadcast_group(bot, message):
     groups = await db.get_all_chats()
     if not groups:
-        grp = await message.reply_text("❌ Nᴏ ɢʀᴏᴜᴘs ғᴏᴜɴᴅ ғᴏʀ ʙʀᴏᴀᴅᴄᴀsᴛɪɴɢ.")
+        grp = await message.reply_text("🔸 Nᴏ ɢʀᴏᴜᴘs ғᴏᴜɴᴅ ғᴏʀ ʙʀᴏᴀᴅᴄᴀsᴛɪɴɢ.")
         await asyncio.sleep(60)
         await grp.delete()
         return
@@ -114,7 +114,7 @@ async def broadcast_group(bot, message):
 async def junk_clear_group(bot, message):
     groups = await db.get_all_chats()
     if not groups:
-        grp = await message.reply_text("❌ Nᴏ ɢʀᴏᴜᴘs ғᴏᴜɴᴅ ғᴏʀ ᴄʟᴇᴀʀ Jᴜɴᴋ ɢʀᴏᴜᴘs.")
+        grp = await message.reply_text("🔸 Nᴏ ɢʀᴏᴜᴘs ғᴏᴜɴᴅ ғᴏʀ ᴄʟᴇᴀʀ Jᴜɴᴋ ɢʀᴏᴜᴘs.")
         await asyncio.sleep(60)
         await grp.delete()
         return
