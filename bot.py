@@ -39,7 +39,7 @@ files = glob.glob(ppath)
 
 async def Lucy_start():
     print('\n')
-    print('\nInitalizing Lucy')
+    print('\nInitalizing ECHO')
     await Codeflix.start()
     bot_info = await Codeflix.get_me()
     Codeflix.username = bot_info.username
@@ -99,4 +99,4 @@ if __name__ == '__main__':
     try:
         loop.run_until_complete(Lucy_start())
     except KeyboardInterrupt:
-        logging.info('Service Stopped Bye 👋')
+        logging.info('Service Stopped Bye ')
