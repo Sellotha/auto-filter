@@ -18,9 +18,9 @@ def is_enabled(value, default):
 # Bot Information Configuration
 # ============================
 SESSION = environ.get('SESSION', 'Media_search')
-API_ID = int(environ.get('API_ID', '23579843'))
-API_HASH = environ.get('API_HASH', '813614877521e3b94bed3d1562192fdd')
-BOT_TOKEN = environ.get('BOT_TOKEN', "8132519140:AAGrOmo0JjQuwY0W34xuW5N2naZU_W_pRng")
+API_ID = int(environ.get('API_ID', ''))
+API_HASH = environ.get('API_HASH', '')
+BOT_TOKEN = environ.get('BOT_TOKEN', "")
 
 # ============================
 # Bot Settings Configuration
@@ -38,18 +38,18 @@ FSUB_PICS = (environ.get('FSUB_PICS', 'https://i.ibb.co/zHt4GcnD/x.jpg')).split(
 # ============================
 # Admin, Channels & Users Configuration
 # ============================
-ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '7089676783 7495063421').split()] # Replace with the actual admin ID(s) to add
-CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1001619818259').split()]  # Channel id for auto indexing (make sure bot is admin)
-LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1002530917983'))  # Log channel id (make sure bot is admin)
-BIN_CHANNEL = int(environ.get('BIN_CHANNEL', '-1002610553422'))  # Bin channel id (make sure bot is admin)
-MOVIE_UPDATE_CHANNEL = int(environ.get('MOVIE_UPDATE_CHANNEL', '-1001868871195'))  # Notification of those who verify will be sent to your channel
-PREMIUM_LOGS = int(environ.get('PREMIUM_LOGS', '-1002530917983'))  # Premium logs channel id
-auth_channel = environ.get('AUTH_CHANNEL', '-1002038760590')  # Channel/Group ID for force sub (make sure bot is admin)
+ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', ' ').split()] # Replace with the actual admin ID(s) to add
+CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-').split()]  # Channel id for auto indexing (make sure bot is admin)
+LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-'))  # Log channel id (make sure bot is admin)
+BIN_CHANNEL = int(environ.get('BIN_CHANNEL', '-'))  # Bin channel id (make sure bot is admin)
+MOVIE_UPDATE_CHANNEL = int(environ.get('MOVIE_UPDATE_CHANNEL', '-'))  # Notification of those who verify will be sent to your channel
+PREMIUM_LOGS = int(environ.get('PREMIUM_LOGS', '-'))  # Premium logs channel id
+auth_channel = environ.get('AUTH_CHANNEL', '-')  # Channel/Group ID for force sub (make sure bot is admin)
 DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '').split()]
 support_chat_id = environ.get('SUPPORT_CHAT_ID', '')  # Support group id (make sure bot is admin)
-reqst_channel = environ.get('REQST_CHANNEL_ID', '-1002038760590')  # Request channel id (make sure bot is admin)
-AUTH_CHANNEL = [int(fch) if id_pattern.search(fch) else fch for fch in environ.get('AUTH_CHANNEL', '-1002038760590').split()]
-MULTI_FSUB = [int(channel_id) for channel_id in environ.get('MULTI_FSUB', '-1002076989748').split() if re.match(r'^-?\d+$', channel_id)]  # Channel for force sub (make sure bot is admin)
+reqst_channel = environ.get('REQST_CHANNEL_ID', '-')  # Request channel id (make sure bot is admin)
+AUTH_CHANNEL = [int(fch) if id_pattern.search(fch) else fch for fch in environ.get('AUTH_CHANNEL', '-').split()]
+MULTI_FSUB = [int(channel_id) for channel_id in environ.get('MULTI_FSUB', '-').split() if re.match(r'^-?\d+$', channel_id)]  # Channel for force sub (make sure bot is admin)
 
 
 # ============================
@@ -67,10 +67,10 @@ APPROVED = environ.get("APPROVED_WELCOME", "on").lower()
 # ============================
 # MongoDB Configuration
 # ============================
-DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://chamelisarkar235:1hI4NRjIF4EPYClS@cluster0.ck9u0.mongodb.net/?retryWrites=true&w=majority")
-DATABASE_URI2 = environ.get('DATABASE_URI2', "mongodb+srv://sarkarchameli73:UeKwUuIBxmQktF90@cluster0.0attx.mongodb.net/?retryWrites=true&w=majority")
-DATABASE_NAME = environ.get('DATABASE_NAME', "yato")
-COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Lucy_files')
+DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://:@clustw=majority")
+DATABASE_URI2 = environ.get('DATABASE_URI2', "mongodb+srv://:@.0attx.mongodb.net/?==&w=majority")
+DATABASE_NAME = environ.get('DATABASE_NAME', "echo")
+COLLECTION_NAME = environ.get('COLLECTION_NAME', 'files')
 
 # ============================
 # Movie Notification & Update Settings
@@ -84,7 +84,7 @@ CAPTION_LANGUAGES = ["Bhojpuri", "Hindi", "Bengali", "Tamil", "English", "Bangla
 # ============================
 VERIFY = bool(environ.get('VERIFY', False))  # Verification On (True) / Off (False)
 VERIFY_EXPIRE = int(environ.get('VERIFY_EXPIRE', 1))  # Add time in hours
-VERIFIED_LOG = int(environ.get('VERIFIED_LOG', '-1001868871195'))  # Log channel id (make sure bot is admin)
+VERIFIED_LOG = int(environ.get('VERIFIED_LOG', '-'))  # Log channel id (make sure bot is admin)
 HOW_TO_VERIFY = environ.get('HOW_TO_VERIFY', '')  # How to open tutorial link for verification
 
 # ============================
