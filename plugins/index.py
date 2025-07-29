@@ -13,8 +13,11 @@ logger.setLevel(logging.INFO)
 lock = asyncio.Lock()
 
 
-@Client.on_callback_query(filters.regex(r'^index'))
+@Client.on_callback_query()
 async def index_files(bot, query):
+    if not query.data.startswith("index#"):
+        return
+        
     if query.data.startswith('index_cancel'):
         temp.CANCEL = True
         return await query.answer("Cancelling Indexing")
