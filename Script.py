@@ -89,7 +89,9 @@ Nᴀᴍᴇ - {}
 ‣ ꜱᴇʀɪᴇꜱ ʀᴇǫᴜᴇꜱᴛ ꜰᴏʀᴍᴀᴛ 
 ‣ ᴇxᴀᴍᴘʟᴇ : Loki S01 or Loki S01E04 or Lucifer S03E24
 
-» ᴅᴏɴᴛ ᴜꜱᴇ ➠ ':(!,./)</b>"""
+» ᴅᴏɴᴛ ᴜꜱᴇ ➠ ':(!,./</b>
+
+\n<i>» Request here → @Movie_Talk_support</i>"""
     
     I_CUD_NT = """<b>ɪ ᴄᴏᴜʟᴅɴ'ᴛ ꜰɪɴᴅ ᴀɴʏ ᴍᴏᴠɪᴇ ʀᴇʟᴀᴛᴇᴅ ᴛᴏ {}.
 
@@ -97,7 +99,9 @@ Nᴀᴍᴇ - {}
 
 1) ᴏ.ᴛ.ᴛ ᴏʀ ᴅᴠᴅ ɴᴏᴛ ʀᴇʟᴇᴀsᴇᴅ
 2) ᴛʏᴘᴇ ɴᴀᴍᴇ ᴡɪᴛʜ ʏᴇᴀʀ
-3) ᴍᴏᴠɪᴇ ɪs ɴᴏᴛ ᴀᴠᴀɪʟᴀʙʟᴇ ɪɴ ᴛʜᴇ ᴅᴀᴛᴀʙᴀsᴇ ʀᴇᴘᴏʀᴛ ᴛᴏ ᴀᴅᴍɪɴs</b>"""
+3) ᴍᴏᴠɪᴇ ɪs ɴᴏᴛ ᴀᴠᴀɪʟᴀʙʟᴇ ɪɴ ᴛʜᴇ ᴅᴀᴛᴀʙᴀsᴇ ʀᴇᴘᴏʀᴛ ᴛᴏ ᴀᴅᴍɪɴs</b>
+
+\n<i>» Request here → @Movie_Talk_support</i>"""
 
     MVE_NT_FND = """<b>ʏᴏᴜʀ ʀᴇǫᴜᴇꜱᴛ ɴᴏᴛ ғᴏᴜɴᴅ ɪɴ ᴍʏ ᴅᴀᴛᴀʙᴀꜱᴇ.</b>\n<blockquote>SPELLING CORRECT KRLE BHAI !</blockquote>\n\n<i>» Request here → @Movie_Talk_support</i>"""
     
