@@ -667,6 +667,11 @@ async def start(client, message):
     await msg.delete()
     await k.edit_text("<b>ʏᴏᴜʀ ᴠɪᴅᴇᴏ / ꜰɪʟᴇ ɪꜱ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ !!</b>")
     return
+
+@Client.on_message(filters.command("start") & filters.incoming)
+async def start(client, message):
+    ...
+    return   # 🟡 Yahan pe tumhara start() function khatam ho raha hai
     
 # 🟢 Ab yahan se neeche paste karo:
 @Client.on_callback_query()
