@@ -26,7 +26,7 @@ async def autoapprove(client, message: ChatJoinRequest):
     if APPROVED == "on":
         invite_link = await client.export_chat_invite_link(chat.id)
         buttons = [
-            [InlineKeyboardButton('• ᴊᴏɪɴ ᴍʏ ᴜᴘᴅᴀᴛᴇs •', url='https://t.me/sanctuary_stardust')],
+            [InlineKeyboardButton('• ᴊᴏɪɴ ᴍʏ ᴜᴘᴅᴀᴛᴇs •', url='https://t.me/movie_talk_backup')],
             [InlineKeyboardButton(f'• ᴊᴏɪɴ {chat.title} •', url=invite_link)]
         ]
         markup = InlineKeyboardMarkup(buttons)
@@ -34,7 +34,7 @@ async def autoapprove(client, message: ChatJoinRequest):
         
         await client.send_photo(
             chat_id=user.id,
-            photo='https://graph.org/file/af409141d781c8ff521e4.jpg',
+            photo='https://i.postimg.cc/HsxBx00J/c-GGgvq-E-samurai-wallpaper-1.jpg',
             caption=caption,
             reply_markup=markup
         )
