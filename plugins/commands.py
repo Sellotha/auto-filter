@@ -668,6 +668,46 @@ async def start(client, message):
     await k.edit_text("<b>ʏᴏᴜʀ ᴠɪᴅᴇᴏ / ꜰɪʟᴇ ɪꜱ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ !!</b>")
     return
 
+@Client.on_message(filters.command("start") & filters.incoming)
+async def start(client, message):
+    ...
+    return   # 🟡 Yahan pe tumhara start() function khatam ho raha hai
+
+# 🟢 Ab yahan se neeche paste karo:
+@Client.on_callback_query()
+async def callback_handler(client, query):
+    data = query.data
+
+    if data == "about":
+        await query.message.edit_text(
+            script.ABOUT_TXT,
+            reply_markup=InlineKeyboardMarkup([
+                [
+                    InlineKeyboardButton("🏠 Back", callback_data="main"),
+                    InlineKeyboardButton("❌ Close", callback_data="close")
+                ]
+            ]),
+            disable_web_page_preview=True
+        )
+
+    elif data == "main":
+        await query.message.edit_text(
+            script.START_TXT.format(query.from_user.mention, "🌀 Back to Main Menu", temp.U_NAME, temp.B_NAME),
+            reply_markup=InlineKeyboardMarkup([
+                [
+                    InlineKeyboardButton("⚔️", callback_data="start"),
+                    InlineKeyboardButton("🛡", callback_data="group_info"),
+                    InlineKeyboardButton("💮", callback_data="about"),
+                    InlineKeyboardButton("🌀", callback_data="shortlink_info"),
+                    InlineKeyboardButton("⚜️", callback_data="main"),
+                ]
+            ]),
+            disable_web_page_preview=True,
+            parse_mode=enums.ParseMode.HTML
+        )
+
+    elif data == "close":
+        await query.message.delete()
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
