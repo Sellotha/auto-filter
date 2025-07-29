@@ -15,15 +15,21 @@ lock = asyncio.Lock()
 
 @Client.on_callback_query()
 async def index_files(bot, query):
-    if not query.data.startswith("index#"):
-        return  # Ignore other callbacks
+    data = query.data
 
-    if query.data.startswith('index_cancel'):
+    if data == 'index_cancel':
         temp.CANCEL = True
         return await query.answer("Cancelling Indexing")
 
-    _, raju, chat, lst_msg_id, from_user = query.data.split("#")
+    if not data.startswith("index#"):
+        return  # Ignore unrelated callbacks
 
+    parts = data.split("#")
+    if len(parts) < 5:
+        return await query.answer("Invalid callback data.", show_alert=True)
+
+    _, raju, chat, lst_msg_id, from_user = parts
+    
     if raju == 'reject':
         await query.message.delete()
         await bot.send_message(int(from_user),
