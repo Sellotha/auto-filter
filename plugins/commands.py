@@ -720,6 +720,106 @@ async def callback_handler(client, query):
 
     else:
         await query.answer("Something went wrong!", show_alert=True)
+
+@Client.on_callback_query()
+async def callback_handler(client, query):
+    data = query.data
+
+    # ----------- Indexing Callback Start ---------
+    if data == 'index_cancel':
+        temp.CANCEL = True
+        return await query.answer("Cancelling Indexing")
+
+    if data.startswith("index#"):
+        parts = data.split("#")
+        if len(parts) < 5:
+            return await query.answer("Invalid callback data.", show_alert=True)
+
+        _, raju, chat, lst_msg_id, from_user = parts
+
+        if raju == 'reject':
+            await query.message.delete()
+            await client.send_message(int(from_user),
+                f'Your Submission for indexing {chat} has been declined by our moderators.',
+                reply_to_message_id=int(lst_msg_id))
+            return
+
+        if lock.locked():
+            return await query.answer('Wait until previous process complete.', show_alert=True)
+
+        await query.answer('Processing...💗', show_alert=True)
+
+        msg = query.message
+
+        if int(from_user) not in ADMINS:
+            await client.send_message(int(from_user),
+                f'Your Submission for indexing {chat} has been accepted by our moderators and will be added soon.',
+                reply_to_message_id=int(lst_msg_id))
+
+        await msg.edit_text(
+            "Starting Indexing",
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton('Cancel', callback_data='index_cancel')]]
+            )
+        )
+
+        try:
+            chat = int(chat)
+        except:
+            pass
+
+        await index_files_to_db(int(lst_msg_id), chat, msg, client)
+        return
+
+    # ----------- Menu Buttons (About, Info, etc) ---------
+    if data == "about":
+        await query.message.edit_text(
+            "**About Bot**\n\nThis bot helps you index and manage your Telegram files efficiently.",
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton("⏪ Back", callback_data="main")]]
+            )
+        )
+
+    elif data == "group_info":
+        await query.message.edit_text(
+            "**Group Info**\n\nThis section provides details about using the bot in group chats.",
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton("⏪ Back", callback_data="main")]]
+            )
+        )
+
+    elif data == "shortlink_info":
+        await query.message.edit_text(
+            "**Shortlink Info**\n\nShorten links and track clicks easily!",
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton("⏪ Back", callback_data="main")]]
+            )
+        )
+
+    elif data == "premium_info":
+        await query.message.edit_text(
+            "**Premium Info**\n\nPremium gives you access to more features and faster indexing.",
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton("⏪ Back", callback_data="main")]]
+            )
+        )
+
+    elif data == "main":
+        await query.message.delete()
+        await client.send_message(
+            query.message.chat.id,
+            f"Hey {query.from_user.mention}, here's the main menu again:",
+            reply_markup=InlineKeyboardMarkup([[
+                InlineKeyboardButton("⚔️", callback_data="start"),
+                InlineKeyboardButton("🛡", callback_data="group_info"),
+                InlineKeyboardButton("💮", callback_data="about"),
+                InlineKeyboardButton("🌀", callback_data="shortlink_info"),
+                InlineKeyboardButton("⚜️", callback_data="main"),
+            ]])
+        )
+
+    else:
+        await query.answer("Something went wrong!", show_alert=True)
     
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
