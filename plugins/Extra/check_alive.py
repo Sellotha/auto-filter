@@ -14,8 +14,8 @@ CMD = ["/", "."]
 
 @Client.on_message(filters.command("alive", CMD))
 async def check_alive(_, message):
-    sticker = await message.reply_sticker("CAACAgUAAxkBAAIlmmiIp6mO8TvMjNX0N8KnODmnwGI8AAJSGAACphVJVOX89y7uJ7wnHgQ") 
-    text = await message.reply_text("ʜᴇʏ ᴡᴀᴛᴄʜᴇʀ 🤞 I ᴀᴍ ᴀʟɪᴠᴇ ❤💗\nPʀᴇss /start ᴛᴏ ᴜsᴇ ᴍᴇ!")
+    sticker = await message.reply_sticker("CAACAgUAAxkBAAIDV2iKfQscnJMQ-vMdjPqgYGoccuCIAAJvFAAC1NVYVOhZQSHZj9pwHgQ") 
+    text = await message.reply_text("ʜᴇʏ ᴡᴀᴛᴄʜᴇʀ ✨ I ᴀᴍ ᴀʟɪᴠᴇ ❤💗\nPʀᴇss /start ᴛᴏ ᴜsᴇ ᴍᴇ!")
     await asyncio.sleep(60)
     await sticker.delete()
     await text.delete()
