@@ -28,7 +28,7 @@ BOT_TOKEN = environ.get('BOT_TOKEN', "")
 CACHE_TIME = int(environ.get('CACHE_TIME', 300))
 USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', True))
 
-PICS = (environ.get('PICS', 'https://i.postimg.cc/NGycHXkn/wp14609117-pc-white-and-black-samurai-anime-wallpapers.jpg')).split()  # Sample pic
+PICS = (environ.get('PICS', 'https://i.postimg.cc/NGycHXkn/wp14609117-pc-white-and-black-samurai-anime-wallpapers.jpg ')).split()  # Sample pic
 NOR_IMG = environ.get("NOR_IMG", "https://i.postimg.cc/NGycHXkn/wp14609117-pc-white-and-black-samurai-anime-wallpapers.jpg")
 MELCOW_VID = environ.get("MELCOW_VID", "https://i.postimg.cc/L6n3R9RL/wp12536937-samurai-pc-4k-wallpap.jpg")
 SPELL_IMG = environ.get("SPELL_IMG", "https://i.postimg.cc/7YHYThbJ/wp11747556-samurai-aesthetic-pc.png")
@@ -41,13 +41,13 @@ FSUB_PICS = (environ.get('FSUB_PICS', 'https://i.postimg.cc/HsxBx00J/c-GGgvq-E-s
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '5764304134').split()] # Replace with the actual admin ID(s) to add
 CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1002172427490').split()]  # Channel id for auto indexing (make sure bot is admin)
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1002703269129'))  # Log channel id (make sure bot is admin)
-BIN_CHANNEL = int(environ.get('BIN_CHANNEL', '-1002717622284'))  # Bin channel id (make sure bot is admin)
+BIN_CHANNEL = int(environ.get('BIN_CHANNEL', '-1002212347569'))  # Bin channel id (make sure bot is admin)
 MOVIE_UPDATE_CHANNEL = int(environ.get('MOVIE_UPDATE_CHANNEL', ''))  # Notification of those who verify will be sent to your channel
 PREMIUM_LOGS = int(environ.get('PREMIUM_LOGS', '-1002703269129'))  # Premium logs channel id
 auth_channel = environ.get('AUTH_CHANNEL', '-1002611085705')  # Channel/Group ID for force sub (make sure bot is admin)
 DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '-1002717622284').split()]
 support_chat_id = environ.get('SUPPORT_CHAT_ID', '-1002806563649')  # Support group id (make sure bot is admin)
-reqst_channel = environ.get('REQST_CHANNEL_ID', '-1002697779337')  # Request channel id (make sure bot is admin)
+reqst_channel = environ.get('REQST_CHANNEL_ID', '-1002703269129')  # Request channel id (make sure bot is admin)
 AUTH_CHANNEL = [int(fch) if id_pattern.search(fch) else fch for fch in environ.get('AUTH_CHANNEL', '').split()]
 MULTI_FSUB = [int(channel_id) for channel_id in environ.get('MULTI_FSUB', '-1002611085705 -1001992624088 -1002136991674').split() if re.match(r'^-?\d+$', channel_id)]  # Channel for force sub (make sure bot is admin)
 
