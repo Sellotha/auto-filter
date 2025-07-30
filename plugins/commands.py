@@ -667,6 +667,59 @@ async def start(client, message):
     await msg.delete()
     await k.edit_text("<b>ʏᴏᴜʀ ᴠɪᴅᴇᴏ / ꜰɪʟᴇ ɪꜱ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ !!</b>")
     return
+
+@Client.on_callback_query()
+async def callback_handler(client, query):
+    data = query.data
+
+    if data == "about":
+        await query.message.edit_text(
+            "**About Bot**\n\nThis bot helps you index and manage your Telegram files efficiently.",
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton("⏪ Back", callback_data="main")]]
+            )
+        )
+
+    elif data == "group_info":
+        await query.message.edit_text(
+            "**Group Info**\n\nThis section provides details about using the bot in group chats.",
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton("⏪ Back", callback_data="main")]]
+            )
+        )
+
+    elif data == "shortlink_info":
+        await query.message.edit_text(
+            "**Shortlink Info**\n\nShorten links and track clicks easily!",
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton("⏪ Back", callback_data="main")]]
+            )
+        )
+
+    elif data == "premium_info":
+        await query.message.edit_text(
+            "**Premium Info**\n\nPremium gives you access to more features and faster indexing.",
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton("⏪ Back", callback_data="main")]]
+            )
+        )
+
+    elif data == "main":
+        await query.message.delete()
+        await client.send_message(
+            query.message.chat.id,
+            f"Hey {query.from_user.mention}, here's the main menu again:",
+            reply_markup=InlineKeyboardMarkup([[
+                InlineKeyboardButton("⚔️", callback_data="start"),
+                InlineKeyboardButton("🛡", callback_data="group_info"),
+                InlineKeyboardButton("💮", callback_data="about"),
+                InlineKeyboardButton("🌀", callback_data="shortlink_info"),
+                InlineKeyboardButton("⚜️", callback_data="main"),
+            ]])
+        )
+
+    else:
+        await query.answer("Something went wrong!", show_alert=True)
     
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
