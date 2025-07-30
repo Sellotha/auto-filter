@@ -37,10 +37,10 @@ async def start(client, message):
         buttons = [[
                     InlineKeyboardButton('• ᴀᴅᴅ ᴍᴇ ᴛᴏ ᴜʀ ᴄʜᴀᴛ •', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
                 ],[
-                    InlineKeyboardButton('• ᴍᴀsᴛᴇʀ •', url="https://t.me/Fedbk_rep_bot"),
-                    InlineKeyboardButton('• sᴜᴘᴘᴏʀᴛ •', url='https://t.me/Fedbk_rep_bot')
+                    InlineKeyboardButton('• ᴍᴀsᴛᴇʀ •', url="https://t.me/sanctuary_stardust"),
+                    InlineKeyboardButton('• sᴜᴘᴘᴏʀᴛ •', url='https://t.me/emitingstars_botz')
                 ],[
-                    InlineKeyboardButton('• ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇs ᴄʜᴀɴɴᴇʟ •', url="https://t.me/movie_talk_backup")
+                    InlineKeyboardButton('• ᴊᴏɪɴ ᴜᴘᴅᴀᴛᴇs ᴄʜᴀɴɴᴇʟ •', url="https://t.me/emitingstars_botz")
                   ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply(script.GSTART_TXT.format(message.from_user.mention if message.from_user else message.chat.title, temp.U_NAME, temp.B_NAME), reply_markup=reply_markup, disable_web_page_preview=True)
@@ -55,7 +55,7 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-                    InlineKeyboardButton(text="⚔️", callback_data="start"),
+                    InlineKeyboardButton(text="💗", callback_data="start"),
                     InlineKeyboardButton(text="🛡", callback_data="group_info"),
                     InlineKeyboardButton(text="💮", callback_data="about"),
                     InlineKeyboardButton(text="🌀", callback_data="shortlink_info"),
@@ -80,16 +80,16 @@ async def start(client, message):
             gtxt = "ɢᴏᴏᴅ ᴇᴠᴇɴɪɴɢ 🍀"
         else:
             gtxt = "ɢᴏᴏᴅ ɴɪɢʜᴛ 🌸"
-        m=await message.reply_text("<i>ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ <b>ʀʏᴢᴇɴ</b>.\nʜᴏᴘᴇ ʏᴏᴜ'ʀᴇ ᴅᴏɪɴɢ ᴡᴇʟʟ...</i>")
+        m=await message.reply_text("<i>ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ <b>ʟᴜᴄʏ</b>.\nʜᴏᴘᴇ ʏᴏᴜ'ʀᴇ ᴅᴏɪɴɢ ᴡᴇʟʟ...</i>")
         await asyncio.sleep(0.4)
-        await m.edit_text("⚔️")
+        await m.edit_text("🧩")
         await asyncio.sleep(0.5)
-        await m.edit_text("🛡️")
+        await m.edit_text("⚜️")
         await asyncio.sleep(0.5)
         await m.edit_text("<b><i>ꜱᴛᴀʀᴛɪɴɢ...</i></b>")
         await asyncio.sleep(0.4)
         await m.delete()        
-        m=await message.reply_sticker("CAACAgUAAxkBAAIlmmiIp6mO8TvMjNX0N8KnODmnwGI8AAJSGAACphVJVOX89y7uJ7wnHgQ") 
+        m=await message.reply_sticker("CAACAgUAAxkBAAJFeWd037UWP-vgb_dWo55DCPZS9zJzAAJpEgACqXaJVxBrhzahNnwSHgQ") 
         await asyncio.sleep(1)
         await m.delete()
         await message.reply_photo(
@@ -121,7 +121,7 @@ async def start(client, message):
        
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[
-                    InlineKeyboardButton(text="⚔️", callback_data="start"),
+                    InlineKeyboardButton(text="💗", callback_data="start"),
                     InlineKeyboardButton(text="🛡", callback_data="group_info"),
                     InlineKeyboardButton(text="💮", callback_data="about"),
                     InlineKeyboardButton(text="🌀", callback_data="shortlink_info"),
@@ -146,16 +146,16 @@ async def start(client, message):
             gtxt = "ɢᴏᴏᴅ ᴇᴠᴇɴɪɴɢ 🍀"
         else:
             gtxt = "ɢᴏᴏᴅ ɴɪɢʜᴛ 🌸"
-        m=await message.reply_text("ʜᴇʟʟᴏ ᴡᴀʀʀɪᴏʀ, ʜᴏᴡ ᴀʀᴇ ʏᴏᴜ \nᴡᴀɪᴛ ᴀ ᴍᴏᴍᴇɴᴛ ᴡᴀʀʀɪᴏʀ . . .")
+        m=await message.reply_text("ʜᴇʟʟᴏ ʙᴀʙʏ, ʜᴏᴡ ᴀʀᴇ ʏᴏᴜ \nᴡᴀɪᴛ ᴀ ᴍᴏᴍᴇɴᴛ ʙᴀʙʏ . . .")
         await asyncio.sleep(0.4)
-        await m.edit_text("⚔️")
+        await m.edit_text("🧩")
         await asyncio.sleep(0.5)
-        await m.edit_text("🛡️")
+        await m.edit_text("⚜️")
         await asyncio.sleep(0.5)
-        await m.edit_text("ꜱᴛᴀʀᴛɪɴɢ ʀʏᴢᴇɴ...")
+        await m.edit_text("ꜱᴛᴀʀᴛɪɴɢ ʙᴀʙʏ...")
         await asyncio.sleep(0.4)
         await m.delete()        
-        m=await message.reply_sticker("CAACAgUAAxkBAAIlmmiIp6mO8TvMjNX0N8KnODmnwGI8AAJSGAACphVJVOX89y7uJ7wnHgQ") 
+        m=await message.reply_sticker("CAACAgUAAxkBAAECroBmQKMAAQ-Gw4nibWoj_pJou2vP1a4AAlQIAAIzDxlVkNBkTEb1Lc4eBA") 
         await asyncio.sleep(1)
         await m.delete()
         await message.reply_photo(
@@ -668,159 +668,7 @@ async def start(client, message):
     await k.edit_text("<b>ʏᴏᴜʀ ᴠɪᴅᴇᴏ / ꜰɪʟᴇ ɪꜱ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ !!</b>")
     return
 
-@Client.on_callback_query()
-async def callback_handler(client, query):
-    data = query.data
 
-    if data == "about":
-        await query.message.edit_text(
-            "**About Bot**\n\nThis bot helps you index and manage your Telegram files efficiently.",
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("⏪ Back", callback_data="main")]]
-            )
-        )
-
-    elif data == "group_info":
-        await query.message.edit_text(
-            "**Group Info**\n\nThis section provides details about using the bot in group chats.",
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("⏪ Back", callback_data="main")]]
-            )
-        )
-
-    elif data == "shortlink_info":
-        await query.message.edit_text(
-            "**Shortlink Info**\n\nShorten links and track clicks easily!",
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("⏪ Back", callback_data="main")]]
-            )
-        )
-
-    elif data == "premium_info":
-        await query.message.edit_text(
-            "**Premium Info**\n\nPremium gives you access to more features and faster indexing.",
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("⏪ Back", callback_data="main")]]
-            )
-        )
-
-    elif data == "main":
-        await query.message.delete()
-        await client.send_message(
-            query.message.chat.id,
-            f"Hey {query.from_user.mention}, here's the main menu again:",
-            reply_markup=InlineKeyboardMarkup([[
-                InlineKeyboardButton("⚔️", callback_data="start"),
-                InlineKeyboardButton("🛡", callback_data="group_info"),
-                InlineKeyboardButton("💮", callback_data="about"),
-                InlineKeyboardButton("🌀", callback_data="shortlink_info"),
-                InlineKeyboardButton("⚜️", callback_data="main"),
-            ]])
-        )
-
-    else:
-        await query.answer("Something went wrong!", show_alert=True)
-
-@Client.on_callback_query()
-async def callback_handler(client, query):
-    data = query.data
-
-    # ----------- Indexing Callback Start ---------
-    if data == 'index_cancel':
-        temp.CANCEL = True
-        return await query.answer("Cancelling Indexing")
-
-    if data.startswith("index#"):
-        parts = data.split("#")
-        if len(parts) < 5:
-            return await query.answer("Invalid callback data.", show_alert=True)
-
-        _, raju, chat, lst_msg_id, from_user = parts
-
-        if raju == 'reject':
-            await query.message.delete()
-            await client.send_message(int(from_user),
-                f'Your Submission for indexing {chat} has been declined by our moderators.',
-                reply_to_message_id=int(lst_msg_id))
-            return
-
-        if lock.locked():
-            return await query.answer('Wait until previous process complete.', show_alert=True)
-
-        await query.answer('Processing...💗', show_alert=True)
-
-        msg = query.message
-
-        if int(from_user) not in ADMINS:
-            await client.send_message(int(from_user),
-                f'Your Submission for indexing {chat} has been accepted by our moderators and will be added soon.',
-                reply_to_message_id=int(lst_msg_id))
-
-        await msg.edit_text(
-            "Starting Indexing",
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton('Cancel', callback_data='index_cancel')]]
-            )
-        )
-
-        try:
-            chat = int(chat)
-        except:
-            pass
-
-        await index_files_to_db(int(lst_msg_id), chat, msg, client)
-        return
-
-    # ----------- Menu Buttons (About, Info, etc) ---------
-    if data == "about":
-        await query.message.edit_text(
-            "**About Bot**\n\nThis bot helps you index and manage your Telegram files efficiently.",
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("⏪ Back", callback_data="main")]]
-            )
-        )
-
-    elif data == "group_info":
-        await query.message.edit_text(
-            "**Group Info**\n\nThis section provides details about using the bot in group chats.",
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("⏪ Back", callback_data="main")]]
-            )
-        )
-
-    elif data == "shortlink_info":
-        await query.message.edit_text(
-            "**Shortlink Info**\n\nShorten links and track clicks easily!",
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("⏪ Back", callback_data="main")]]
-            )
-        )
-
-    elif data == "premium_info":
-        await query.message.edit_text(
-            "**Premium Info**\n\nPremium gives you access to more features and faster indexing.",
-            reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("⏪ Back", callback_data="main")]]
-            )
-        )
-
-    elif data == "main":
-        await query.message.delete()
-        await client.send_message(
-            query.message.chat.id,
-            f"Hey {query.from_user.mention}, here's the main menu again:",
-            reply_markup=InlineKeyboardMarkup([[
-                InlineKeyboardButton("⚔️", callback_data="start"),
-                InlineKeyboardButton("🛡", callback_data="group_info"),
-                InlineKeyboardButton("💮", callback_data="about"),
-                InlineKeyboardButton("🌀", callback_data="shortlink_info"),
-                InlineKeyboardButton("⚜️", callback_data="main"),
-            ]])
-        )
-
-    else:
-        await query.answer("Something went wrong!", show_alert=True)
-    
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
            
