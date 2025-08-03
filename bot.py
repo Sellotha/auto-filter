@@ -39,7 +39,7 @@ files = glob.glob(ppath)
 
 async def Lucy_start():
     print('\n')
-    print('\nInitalizing ECHO')
+    print('\nInitializing RYZEN')
     await Codeflix.start()
     bot_info = await Codeflix.get_me()
     Codeflix.username = bot_info.username
