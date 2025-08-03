@@ -20,14 +20,14 @@ class script(object):
 """
 
     SUPPORT_TXT = """ᴛʜᴇsᴇ ᴀʀᴇ ᴍʏ sᴜᴘᴘᴏʀᴛ ᴄʜᴀɴɴᴇʟ ᴀɴᴅ ɢʀᴏᴜᴘ. ɪғ ᴀɴʏ ᴘʀᴏʙʟᴇᴍ, ʀᴇᴘᴏʀᴛ ᴛᴏ ᴛʜᴇ ᴀᴅᴍɪɴ
-ᴘᴏᴡᴇʀᴇᴅ ʙʏ - @Fedbk_rep_bot"""
+ᴘᴏᴡᴇʀᴇᴅ ʙʏ - @Movie_Talk_support"""
         
     HELPS_TXT = """» ᴡʜᴇʀᴇ ᴅᴏ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴏᴘᴇɴ ᴛʜᴇ sᴇᴛᴛɪɴɢs ᴍᴇɴᴜ?."""
     
     CHANNELS = """
 <b>๏ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ɢɪᴠᴇɴ ʙᴇʟᴏᴡ ᴛᴏ ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟs ᴀɴᴅ ɢᴇᴛ ᴍᴏʀᴇ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ᴜs.
 
-ɪғ ʏᴏᴜ ғᴏᴜɴᴅ ᴀɴʏ ʙᴜɢ ɪɴ ˹ECHO˼ ᴏʀ ɪғ ʏᴏᴜ ᴡᴀɴɴᴀ ɢɪᴠᴇ ғᴇᴇᴅʙᴀᴄᴋ ᴀʙᴏᴜᴛ ᴛʜᴇ ʙᴏᴛ˼, ᴩʟᴇᴀsᴇ ʀᴇᴩᴏʀᴛ ɪᴛ ᴀᴛ <a href='https://t.me/Fedbk_rep_bot'>sᴜᴩᴩᴏʀᴛ ᴄʜᴀᴛ</a>.</b>"""
+ɪғ ʏᴏᴜ ғᴏᴜɴᴅ ᴀɴʏ ʙᴜɢ ɪɴ ˹𝗥𝗬𝗭𝗘𝗡˼ ᴏʀ ɪғ ʏᴏᴜ ᴡᴀɴɴᴀ ɢɪᴠᴇ ғᴇᴇᴅʙᴀᴄᴋ ᴀʙᴏᴜᴛ ᴛʜᴇ ʙᴏᴛ˼, ᴩʟᴇᴀsᴇ ʀᴇᴩᴏʀᴛ ɪᴛ ᴀᴛ <a href='https://t.me/Fedbk_rep_bot'>ʀᴇᴘᴏʀᴛ ᴄʜᴀᴛ</a>.</b>"""
 
     
     STATUS_TXT = """<b>╭────[  ᴅᴀᴛᴀʙᴀsᴇ 1  ]────</b>
@@ -77,7 +77,7 @@ Nᴀᴍᴇ - {}
 ʏᴏᴜ ᴀʀᴇ ᴜꜱɪɴɢ ᴏɴᴇ ᴏꜰ ᴍʏ ᴏʟᴅ ᴍᴇꜱꜱᴀɢᴇꜱ, 
 ᴘʟᴇᴀꜱᴇ ꜱᴇɴᴅ ᴛʜᴇ ʀᴇǫᴜᴇꜱᴛ ᴀɢᴀɪɴ."""
 
-    CUDNT_FND = """<b>ʏᴏᴜʀ ʀᴇǫᴜᴇꜱᴛ ɴᴏᴛ ғᴏᴜɴᴅ ɪɴ ᴍʏ ᴅᴀᴛᴀʙᴀꜱᴇ.</b>\n<blockquote>SPELLING CORRECT KRLE BHAI !</blockquote>\n\n<i>» Request here → @Movie_Talk_support</i>"""
+    CUDNT_FND = """<b>ʏᴏᴜʀ ʀᴇǫᴜᴇꜱᴛ ɴᴏᴛ ғᴏᴜɴᴅ ɪɴ ᴍʏ ᴅᴀᴛᴀʙᴀꜱᴇ.</b>\n<blockquote>𝐁𝐎𝐒𝐒 𝐊𝐎 𝐁𝐎𝐋𝐎 𝐀𝐃𝐃 𝐊𝐀𝐑𝐍𝐄 𝐊𝐎 !</blockquote>\n\n<i>» 𝐑𝐞𝐪𝐮𝐞𝐬𝐭 𝐡𝐞𝐫𝐞  → @Movie_Talk_support</i>"""
 
     I_CUDNT = """<b>sᴏʀʀʏ ɴᴏ ꜰɪʟᴇs ᴡᴇʀᴇ ꜰᴏᴜɴᴅ ꜰᴏʀ ʏᴏᴜʀ ʀᴇǫᴜᴇꜱᴛ {}
 
@@ -91,7 +91,7 @@ Nᴀᴍᴇ - {}
 
 » ᴅᴏɴᴛ ᴜꜱᴇ ➠ ':(!,./</b>
 
-\n<i>» Request here → @Movie_Talk_support</i>"""
+\n<i>» 𝐑𝐞𝐪𝐮𝐞𝐬𝐭 𝐡𝐞𝐫𝐞 → @Movie_Talk_support</i>"""
     
     I_CUD_NT = """<b>ɪ ᴄᴏᴜʟᴅɴ'ᴛ ꜰɪɴᴅ ᴀɴʏ ᴍᴏᴠɪᴇ ʀᴇʟᴀᴛᴇᴅ ᴛᴏ {}.
 
@@ -101,9 +101,9 @@ Nᴀᴍᴇ - {}
 2) ᴛʏᴘᴇ ɴᴀᴍᴇ ᴡɪᴛʜ ʏᴇᴀʀ
 3) ᴍᴏᴠɪᴇ ɪs ɴᴏᴛ ᴀᴠᴀɪʟᴀʙʟᴇ ɪɴ ᴛʜᴇ ᴅᴀᴛᴀʙᴀsᴇ ʀᴇᴘᴏʀᴛ ᴛᴏ ᴀᴅᴍɪɴs</b>
 
-\n<i>» Request here → @Movie_Talk_support</i>"""
+\n<i>» 𝐑𝐞𝐪𝐮𝐞𝐬𝐭 𝐡𝐞𝐫𝐞 → @Movie_Talk_support</i>"""
 
-    MVE_NT_FND = """<b>ʏᴏᴜʀ ʀᴇǫᴜᴇꜱᴛ ɴᴏᴛ ғᴏᴜɴᴅ ɪɴ ᴍʏ ᴅᴀᴛᴀʙᴀꜱᴇ.</b>\n<blockquote>SPELLING CORRECT KRLE BHAI !</blockquote>\n\n<i>» Request here → @Movie_Talk_support</i>"""
+    MVE_NT_FND = """<b>ʏᴏᴜʀ ʀᴇǫᴜᴇꜱᴛ ɴᴏᴛ ғᴏᴜɴᴅ ɪɴ ᴍʏ ᴅᴀᴛᴀʙᴀꜱᴇ.</b>\n<blockquote>𝐁𝐎𝐒𝐒 𝐊𝐎 𝐁𝐎𝐋𝐎 𝐀𝐃𝐃 𝐊𝐀𝐑𝐍𝐄 𝐊𝐎 !</blockquote>\n\n<i>» 𝐑𝐞𝐪𝐮𝐞𝐬𝐭 𝐡𝐞𝐫𝐞 → @Movie_Talk_support</i>"""
     
 
     TOP_ALRT_MSG = """Yᴏᴜʀ ʀᴇǫᴜᴇsᴛ ʜᴀs ʙᴇᴇɴ ʀᴇᴄᴇɪᴠᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ ✅"""
