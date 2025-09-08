@@ -182,9 +182,9 @@ else:
     ON_HEROKU = False
 HAS_SSL = bool(getenv('HAS_SSL', True))
 if HAS_SSL:
-    URL = "http://subtle-lexie-kirtiman-ada51dc9.koyeb.app/".format(FQDN)
+    URL = "http://gleaming-toad-koye8080-6408f6c9.koyeb.app/".format(FQDN)
 else:
-    URL = "http://subtle-lexie-kirtiman-ada51dc9.koyeb.app/".format(FQDN)
+    URL = "http://gleaming-toad-koye8080-6408f6c9.koyeb.app/".format(FQDN)
 
 # ============================
 # Reactions Configuration
