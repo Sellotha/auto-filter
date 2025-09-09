@@ -274,8 +274,8 @@ Nᴀᴍᴇ : {}
 
 Mᴇꜱꜱᴀɢᴇ : <b>{}</b>"""
     
-    CAPTION = "> <b>{file_name}</b>\n\n> ⚙️ 𝚂𝚒𝚣𝚎 ~ <b>[{file_size}]</b>\n> ⚜️ 𝙿𝚘𝚜𝚝 𝚋𝚢 ~ <b>𝐌𝐎𝐕𝐈𝐄 𝐓𝐀𝐋𝐊</b>\n\n> ⚡ 𝐉𝐨𝐢𝐧 𝐔𝐬 ~ ❤️\n> ➥『 @Movie_Talk_Backup 』"
-
+    CAPTION = "> <b>{file_name}</b>\n> ⚙️ 𝚂𝚒𝚣𝚎 ~ <b>{file_size}</b>\n⚜️ 𝙿𝚘𝚜𝚝 𝚋𝚢 ~ <b>𝐌𝐎𝐕𝐈𝐄 𝐓𝐀𝐋𝐊</b>\n> ⚡ 𝐉𝐨𝐢𝐧 𝐔𝐬 ~ ❤️\n➥『 @Movie_Talk_Backup 』"
+    
     IMDB_TEMPLATE_TXT = """
 <b>‣ ᴛɪᴛʟᴇ : <a href={url}>{title}</a>
 
