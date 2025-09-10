@@ -274,7 +274,7 @@ Nᴀᴍᴇ : {}
 
 Mᴇꜱꜱᴀɢᴇ : <b>{}</b>"""
     
-    CAPTION = "> <code>{file_name}</code>\n\n> ⚙️ 𝚂𝚒𝚣𝚎 ➦ <b>{file_size}</b>\n> ⚜️ 𝙿𝚘𝚜𝚝 𝚋𝚢 ➦ <a href='https://t.me/RYZEN_X_BOT'>𝗥𝗬𝗭𝗘𝗡 ֶָ֢</a>\n\n> ⚡ 𝐉𝐨𝐢𝐧 𝐔𝐬 ➦ @Movie_Talk_Backup"
+    CAPTION = "> <code>{file_name}</code>\n\n> ⚙️ 𝚂𝚒𝚣𝚎 ➦ <b>[{file_size}]</b>\n> ⚜️ 𝙿𝚘𝚜𝚝 𝚋𝚢 ➦ <a href='https://t.me/RYZEN_X_BOT'>𝗥𝗬𝗭𝗘𝗡 ֶָ֢</a>\n\n> ⚡ 𝐉𝐨𝐢𝐧 𝐔𝐬 ➦ @Movie_Talk_Backup"
     
     IMDB_TEMPLATE_TXT = """
 <b>‣ ᴛɪᴛʟᴇ : <a href={url}>{title}</a>
