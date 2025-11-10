@@ -12,70 +12,72 @@ def list_to_str(lst):
         return ", ".join(map(str, lst))
     return ""
 
-# ✅ Poster Fetch with User-Agent Fix
+
+# ✅ Poster Fetch with Anti-403 User-Agent
 async def fetch_image(url, size=(720, 720)):
     if not IMAGE_FETCH or not url:
         return None
 
     headers = {
-        "User-Agent": (
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-            "(KHTML, like Gecko) Chrome/120.0 Safari/537.36"
-        )
+        "User-Agent":
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/120.0 Safari/537.36"
     }
 
     try:
         async with aiohttp.ClientSession(headers=headers) as session:
-            async with session.get(url, allow_redirects=True) as response:
+            async with session.get(url) as response:
                 if response.status != 200:
                     print(f"[×] Poster Fetch Failed: {url} | HTTP {response.status}")
                     return None
 
-                data = await response.read()
-                img = Image.open(BytesIO(data)).convert("RGB")
+                content = await response.read()
+                img = Image.open(BytesIO(content)).convert("RGB")
                 img = img.resize(size, Image.LANCZOS)
-                byte_arr = BytesIO()
-                img.save(byte_arr, format="JPEG")
-                byte_arr.seek(0)
-                return byte_arr
+                img_bytes = BytesIO()
+                img.save(img_bytes, format="JPEG")
+                img_bytes.seek(0)
+                return img_bytes
 
     except Exception as e:
         print(f"[Poster Fetch Error] {e}")
-    return None
+        return None
 
 
-# ✅ Movie Details Fetch
+
+# ✅ IMDb + Fallback Poster URL
 async def get_movie_details(query, id=False, file=None):
     try:
         query = query.strip().lower()
 
-        year = re.findall(r"[1-2]\d{3}$", query)
+        # extract year
+        year = re.findall(r"(19|20)\d{2}", query)
         title = query.replace(year[0], "").strip() if year else query
 
-        movie_list = ia.search_movie(title, results=10)
-        if not movie_list:
+        results = ia.search_movie(title)
+        if not results:
             return None
 
+        # if year matched use that one
         if year:
-            movie_list = [m for m in movie_list if str(m.get("year")) == year[0]] or movie_list
+            results = [m for m in results if str(m.get("year")) == year[0]] or results
 
-        movie = ia.get_movie(movie_list[0].movieID)
+        movie = ia.get_movie(results[0].movieID)
+
+        # ✅ P O S T E R   F I X
+        poster_url = None
+        if "full-size cover url" in movie:
+            poster_url = movie["full-size cover url"]
+        elif "cover url" in movie:
+            poster_url = movie["cover url"]
+        else:
+            # ✅ TMDB fallback
+            search_title = movie.get("title", "").replace(" ", "+")
+            poster_url = f"https://image.tmdb.org/t/p/w500/{search_title}.jpg"
 
         plot = movie.get("plot", ["No Description"])[0]
         if len(plot) > 800:
             plot = plot[:800] + "..."
-
-        # ✅ Poster fallback chain
-        poster_url = (
-            movie.get('full-size cover url')
-            or movie.get('cover url')
-            or movie.get('thumbnail url')
-        )
-
-        # ✅ TMDB fallback only if IMDB poster missing
-        if not poster_url and movie.get("title"):
-            tmdb_title = movie.get("title").replace(" ", "+")
-            poster_url = f"https://image.tmdb.org/t/p/w500/{tmdb_title}.jpg"
 
         return {
             "title": movie.get("title"),
@@ -92,5 +94,5 @@ async def get_movie_details(query, id=False, file=None):
         }
 
     except Exception as e:
-        print(f"[IMDB Fetch Error] {e}")
+        print(f"[IMDB FETCH ERROR] {e}")
         return None
