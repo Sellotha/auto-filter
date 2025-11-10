@@ -93,7 +93,11 @@ async def get_movie_details(query, id=False, file=None):
         if plot and len(plot) > 800:
             plot = plot[:800] + "..."
 
-        poster_url = movie.get('full-size cover url')
+        poster_url = (
+    movie.get('cover url') or 
+    movie.get('full-size cover url') or 
+    movie.get('thumbnail url')
+        )
 
         return {
             'title': movie.get('title'),
