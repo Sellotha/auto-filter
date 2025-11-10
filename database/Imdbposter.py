@@ -7,9 +7,8 @@ TMDB_SEARCH_URL = "https://api.consumet.org/meta/tmdb/search"
 TMDB_INFO_URL = "https://api.consumet.org/meta/tmdb/info"
 
 def clean_title(filename):
-    # remove quality + resolution tags
     filename = filename.replace('.', ' ').replace('_', ' ')
-    filename = re.sub(r'\b(480p|720p|1080p|2160p|HDRip|BluRay|WEBRip|WEB-DL|DVDRip|x264|HEVC|Hindi|Dual Audio|Original|UNCUT)\b', '', filename, flags=re.IGNORECASE)
+    filename = re.sub(r'\b(480p|720p|1080p|2160p|HDRip|BluRay|WEBRip|WEB-DL|DVDRip|x264|HEVC|Hindi|Tamil|Telugu|Dual Audio|HQ|Original|UNCUT)\b', '', filename, flags=re.IGNORECASE)
     filename = re.sub(r'\s+', ' ', filename).strip()
     return filename
 
@@ -41,7 +40,7 @@ async def get_movie_details(query, id=False, file=None):
             info.get("image") or 
             (f"https://image.tmdb.org/t/p/w500{info.get('poster_path')}" if info.get("poster_path") else None)
         ),
-        "plot": info.get("description", "No description."),
+        "plot": info.get("description", "No description available."),
     }
 
 async def fetch_image(url, size=(720, 720)):
@@ -56,7 +55,7 @@ async def fetch_image(url, size=(720, 720)):
 
     img = Image.open(BytesIO(content))
     img = img.resize(size, Image.LANCZOS)
-    img_bytes = BytesIO()
-    img.save(img_bytes, format='JPEG')
-    img_bytes.seek(0)
-    return img_bytes
+    img_out = BytesIO()
+    img.save(img_out, format='JPEG')
+    img_out.seek(0)
+    return img_out
