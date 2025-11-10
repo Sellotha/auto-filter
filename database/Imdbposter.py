@@ -27,20 +27,24 @@ async def fetch_image(url, size=(720, 720)):
     try:
         async with aiohttp.ClientSession(headers=headers) as session:
             async with session.get(url, allow_redirects=True) as response:
-                if response.status == 200:
-                    data = await response.read()
-                    img = Image.open(BytesIO(data)).convert("RGB")  # ✅ Fix WebP/JPEG issues
-                    img = img.resize(size, Image.LANCZOS)
-                    byte_arr = BytesIO()
-                    img.save(byte_arr, format="JPEG")
-                    byte_arr.seek(0)
-                    return byte_arr
-                else:
-                    print(f"[Poster Fetch] Failed: HTTP {response.status}")
+
+                # ✅ Add Debug Here
+                if response.status != 200:
+                    print(f"[×] Poster Fetch Failed: {url} | HTTP {response.status}")
+                    return None
+
+                data = await response.read()
+                img = Image.open(BytesIO(data)).convert("RGB")
+                img = img.resize(size, Image.LANCZOS)
+                byte_arr = BytesIO()
+                img.save(byte_arr, format="JPEG")
+                byte_arr.seek(0)
+                return byte_arr
+
     except Exception as e:
         print(f"[Poster Fetch Error] {e}")
     return None
-
+    
 # ✅ Movie Details Fetch
 async def get_movie_details(query, id=False, file=None):
     try:
