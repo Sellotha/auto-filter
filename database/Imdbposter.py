@@ -64,10 +64,15 @@ async def get_movie_details(query, id=False, file=None):
 
         # ✅ Poster selection fallback chain
         poster_url = (
-            movie.get('cover url') or
-            movie.get('full-size cover url') or
-            movie.get('thumbnail url')
-        )
+    movie.get('full-size cover url')
+    or movie.get('cover url')
+    or movie.get('thumbnail url')
+)
+
+# If IMDB poster missing, fallback to TMDB
+if not poster_url and movie.get('title'):
+    title = movie.get('title').replace(" ", "+")
+    poster_url = f"https://image.tmdb.org/t/p/w500/{title}.jpg"
 
         return {
             "title": movie.get("title"),
