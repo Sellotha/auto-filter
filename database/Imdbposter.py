@@ -27,8 +27,6 @@ async def fetch_image(url, size=(720, 720)):
     try:
         async with aiohttp.ClientSession(headers=headers) as session:
             async with session.get(url, allow_redirects=True) as response:
-
-                # ✅ Add Debug Here
                 if response.status != 200:
                     print(f"[×] Poster Fetch Failed: {url} | HTTP {response.status}")
                     return None
@@ -44,7 +42,8 @@ async def fetch_image(url, size=(720, 720)):
     except Exception as e:
         print(f"[Poster Fetch Error] {e}")
     return None
-    
+
+
 # ✅ Movie Details Fetch
 async def get_movie_details(query, id=False, file=None):
     try:
@@ -66,17 +65,17 @@ async def get_movie_details(query, id=False, file=None):
         if len(plot) > 800:
             plot = plot[:800] + "..."
 
-        # ✅ Poster selection fallback chain
+        # ✅ Poster fallback chain
         poster_url = (
-    movie.get('full-size cover url')
-    or movie.get('cover url')
-    or movie.get('thumbnail url')
-)
+            movie.get('full-size cover url')
+            or movie.get('cover url')
+            or movie.get('thumbnail url')
+        )
 
-# If IMDB poster missing, fallback to TMDB
-if not poster_url and movie.get('title'):
-    title = movie.get('title').replace(" ", "+")
-    poster_url = f"https://image.tmdb.org/t/p/w500/{title}.jpg"
+        # ✅ TMDB fallback only if IMDB poster missing
+        if not poster_url and movie.get("title"):
+            tmdb_title = movie.get("title").replace(" ", "+")
+            poster_url = f"https://image.tmdb.org/t/p/w500/{tmdb_title}.jpg"
 
         return {
             "title": movie.get("title"),
