@@ -1,9 +1,9 @@
-# Added by @NaapaExtraa
+# Added by @NaapaExtraa (Edited & Fixed By Your Girl 💗)
 import aiohttp
 import asyncio
-from pyrogram import Client, filters
+from bot import app  # ✅ IMPORTANT: Use your running client instance
+from pyrogram import filters
 from pyrogram.types import Message, CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton, InputMediaPhoto
-from pyrogram.enums import ParseMode
 import urllib.parse
 
 CONSUMET_API_URL = "https://consumet-api-org.vercel.app/meta/tmdb/"
@@ -13,9 +13,6 @@ RESULTS_PER_PAGE = 5
 IMDB_QUERY_CACHE = {}
 
 async def fetch_consumet_data(endpoint: str, params: dict = None, retries: int = 3):
-    """
-    Makes a unified async request to the consumet API with automatic retries for server errors.
-    """
     url = f"{CONSUMET_API_URL}{endpoint}"
     for attempt in range(retries):
         async with aiohttp.ClientSession() as session:
@@ -24,17 +21,13 @@ async def fetch_consumet_data(endpoint: str, params: dict = None, retries: int =
                     if response.status == 200:
                         return await response.json()
                     if response.status >= 500:
-                        print(f"Consumet API Server Error (Status {response.status}), attempt {attempt + 1}/{retries} for URL {response.url}")
-                        await asyncio.sleep(1) 
+                        await asyncio.sleep(1)
                         continue
-                    else:
-                        print(f"Consumet API Client Error: Status {response.status} for URL {response.url}")
-                        return None 
-            except aiohttp.ClientError as e:
-                print(f"Consumet API Request Error: {e}, attempt {attempt + 1}/{retries}")
+                    return None
+            except aiohttp.ClientError:
                 await asyncio.sleep(1)
                 continue
-    return None 
+    return None
 
 def format_list(items: list, key: str = None, max_items=5) -> str:
     if not items: return "N/A"
@@ -43,8 +36,8 @@ def format_list(items: list, key: str = None, max_items=5) -> str:
     return ', '.join([str(item) for item in items[:max_items]])
 
 # --- Main Command Handler ---
-@Client.on_message(filters.command("search") & filters.private)
-async def imdb_search_command(client: Client, message: Message):
+@app.on_message(filters.command("search") & filters.private)
+async def imdb_search_command(client, message: Message):
     if len(message.command) < 2:
         return await message.reply_text("<b>Usage:</b> <code>/search [movie or tv show name]</code>")
 
@@ -53,7 +46,7 @@ async def imdb_search_command(client: Client, message: Message):
     IMDB_QUERY_CACHE[user_id] = query
     await show_imdb_search_page(client, message, query, page=1)
 
-# --- Pagination and Search Page Renderer ---
+# --- Pagination + Search Page Renderer ---
 async def show_imdb_search_page(client, message_or_query, query, page):
     is_callback = isinstance(message_or_query, CallbackQuery)
     
@@ -80,73 +73,69 @@ async def show_imdb_search_page(client, message_or_query, query, page):
         item_type = item.get('type', 'Media')
         release_date = item.get('releaseDate', '')
         year = f" ({release_date})" if release_date else ""
-        
-        callback_data = f"imdb_detail_{item_id}_{item_type}_{page}"
-        button_text = f"{title}{year} [{item_type}]"
-        buttons.append([InlineKeyboardButton(text=button_text, callback_data=callback_data)])
-    
+        buttons.append([InlineKeyboardButton(f"{title}{year} [{item_type}]", callback_data=f"imdb_detail_{item_id}_{item_type}_{page}")])
+
     nav_buttons = []
     if page > 1:
         nav_buttons.append(InlineKeyboardButton("⬅️ Previous", callback_data=f"imdb_page_{page - 1}"))
     if data.get('hasNextPage', False):
         nav_buttons.append(InlineKeyboardButton("Next ➡️", callback_data=f"imdb_page_{page + 1}"))
-
     if nav_buttons:
         buttons.append(nav_buttons)
 
-    reply_markup = InlineKeyboardMarkup(buttons)
     await message.edit_caption(
         f"Search results for <b>{query}</b> (Page {page}):",
-        reply_markup=reply_markup
+        reply_markup=InlineKeyboardMarkup(buttons)
     )
 
-@Client.on_callback_query(filters.regex("^imdb_page_"))
-async def imdb_page_flipper(client: Client, query: CallbackQuery):
+@app.on_callback_query(filters.regex("^imdb_page_"))
+async def imdb_page_flipper(client, query: CallbackQuery):
     user_id = query.from_user.id
     page = int(query.data.split("_")[2])
     if user_id not in IMDB_QUERY_CACHE:
         return await query.answer("Your search has expired.", show_alert=True)
-    
-    search_query = IMDB_QUERY_CACHE[user_id]
-    await show_imdb_search_page(client, query, search_query, page)
+    await show_imdb_search_page(client, query, IMDB_QUERY_CACHE[user_id], page)
 
-@Client.on_callback_query(filters.regex(r"^imdb_detail_(.+)_([^_]+)_(\d+)"))
-async def imdb_details(client: Client, query: CallbackQuery):
+@app.on_callback_query(filters.regex(r"^imdb_detail_(.+)_([^_]+)_(\d+)"))
+async def imdb_details(client, query: CallbackQuery):
     await query.answer("Fetching details...")
     item_id, item_type, page = query.matches[0].groups()
     page = int(page)
 
     data = await fetch_consumet_data(f"info/{item_id}", params={"type": item_type})
-
     if not data:
-        await query.message.edit_caption(
-            "❌ **Could not fetch details for this item.**\n\nThe source API might be temporarily unavailable. Please try again in a moment.",
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("« Back to Results", callback_data=f"imdb_page_{page}")]]))
-        return
+        return await query.message.edit_caption(
+            "❌ Failed to fetch information.",
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("« Back", callback_data=f"imdb_page_{page}")]])
+        )
 
     title = data.get('title', 'N/A')
-    image_url = data.get('cover') or data.get('poster') or data.get('image', SEARCH_PLACEHOLDER_PHOTO)
-    
+
+    # ✅ FINAL POSTER FIX (HD Poster Fallback added)
+    image_url = (
+        data.get('cover')
+        or data.get('poster')
+        or data.get('image')
+        or (f"https://image.tmdb.org/t/p/w500{data.get('poster_path')}" if data.get('poster_path') else None)
+        or SEARCH_PLACEHOLDER_PHOTO
+    )
+
     description = data.get('description') or "No description available."
     if len(description) > 400:
         description = description[:400] + "..."
 
-    caption = f"<b>{title}</b>\n\n"
-    caption += f"→ <b>Type:</b> {data.get('type', 'N/A')}\n"
-    caption += f"→ <b>Released:</b> {data.get('releaseDate', 'N/A')}\n"
-    caption += f"→ <b>Rating:</b> {data.get('rating', 'N/A')}/10\n"
-    caption += f"→ <b>Genres:</b> {format_list(data.get('genres', []))}\n"
-    caption += f"→ <b>Casts:</b> {format_list(data.get('casts', []), key='name')}\n\n"
-    caption += f"→ <b>Description:</b> {description}\n\n"
-    caption += f"Made By @NaapaExtraa 🥀"
-    
-    buttons = [
-        [InlineKeyboardButton("« Back to Results", callback_data=f"imdb_page_{page}")]
-    ]
-    
-    reply_markup = InlineKeyboardMarkup(buttons)
-    
+    caption = (
+        f"<b>{title}</b>\n\n"
+        f"→ <b>Type:</b> {data.get('type', 'N/A')}\n"
+        f"→ <b>Released:</b> {data.get('releaseDate', 'N/A')}\n"
+        f"→ <b>Rating:</b> {data.get('rating', 'N/A')}/10\n"
+        f"→ <b>Genres:</b> {format_list(data.get('genres', []))}\n"
+        f"→ <b>Casts:</b> {format_list(data.get('casts', []), key='name')}\n\n"
+        f"→ <b>Description:</b> {description}\n\n"
+        f"🥀 Made By @NaapaExtraa"
+    )
+
     await query.message.edit_media(
         media=InputMediaPhoto(media=image_url, caption=caption),
-        reply_markup=reply_markup
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("« Back to Results", callback_data=f"imdb_page_{page}")]])
     )
